@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Produto - [Nome do Produto]</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Nome da Loja</h1>
+        <nav>
+            <a href="/">Início</a>
+            <a href="/carrinho">Carrinho</a>
+        </nav>
+    </header>
+
+    <main class="product-detail-page">
+        <section class="product-gallery">
+            <div class="main-image">
+                <img id="mainProductImage" src="https://via.placeholder.com/600x400?text=Produto+Principal" alt="Imagem principal do produto">
+            </div>
+            <div class="thumbnail-gallery" id="thumbnailGallery">
+                <img src="https://via.placeholder.com/100x70?text=Img+1" alt="Miniatura 1" class="thumbnail active">
+                <img src="https://via.placeholder.com/100x70?text=Img+2" alt="Miniatura 2" class="thumbnail">
+                <img src="https://via.placeholder.com/100x70?text=Img+3" alt="Miniatura 3" class="thumbnail">
+            </div>
+        </section>
+
+        <section class="product-info">
+            <h2 id="productTitle">Nome do Produto Incrível</h2>
+            <p class="product-price" id="productPrice">R$ 99,99</p>
+
+            <div class="product-options" id="productOptions" style="display: none;">
+                <label for="size-select">Selecione o tamanho:</label>
+                <select id="size-select">
+                    <option value="">Escolha uma opção</option>
+                </select>
+            </div>
+
+            <button class="add-to-cart-button">Adicionar ao Carrinho</button>
+
+            <div class="product-description" id="productDescription">
+                <h3>Descrição do Produto</h3>
+                <p>Esta é uma descrição detalhada e persuasiva do produto. Destaque os benefícios, as características únicas e por que o cliente precisa deste item.</p>
+                <p>Feito com materiais de alta qualidade para garantir durabilidade e conforto. Perfeito para qualquer ocasião.</p>
+            </div>
+
+            <div class="social-proof" id="socialProofSection">
+                <h3>O que nossos clientes dizem:</h3>
+                <div class="testimonial">
+                    <p>"Adorei! Qualidade superior e entrega rápida. Recomendo muito!"</p>
+                    <small>- Maria S.</small>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Nome da Loja. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="product.js"></script>
+</body>
+</html>
+
