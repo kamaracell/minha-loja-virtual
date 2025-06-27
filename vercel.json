@@ -2,19 +2,11 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/*.js",
+      "src": "api/index.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
-    {
-      "src": "/product",
-      "dest": "/public/product.html"
-    },
-    {
-      "src": "/(.*\\.(css|js|png|jpg|jpeg|gif|svg|ico))$",
-      "dest": "/public/$1"
-    },
     {
       "src": "/(.*)",
       "dest": "/api"
