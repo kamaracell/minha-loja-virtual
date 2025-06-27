@@ -3,65 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalhes do Produto - [Nome do Produto]</title>
+    <title>Nome do Produto - Sua Loja Virtual</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Nome da Loja</h1>
-        <nav>
-            <a href="/">Início</a>
-            <a href="/carrinho">Carrinho</a>
-        </nav>
+    <header class="main-header">
+        <div class="container">
+            <h1>Sua Loja Virtual</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Início</a></li>
+                    <li><a href="/products">Produtos</a></li>
+                    <li><a href="/contact">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <main class="product-detail-page">
-        <section class="product-gallery">
-            <div class="main-image">
-                <img id="mainProductImage" src="https://via.placeholder.com/600x400?text=Produto+Principal" alt="Imagem principal do produto">
-            </div>
-            <div class="thumbnail-gallery" id="thumbnailGallery">
-                <img src="https://via.placeholder.com/100x70?text=Img+1" alt="Miniatura 1" class="thumbnail active">
-                <img src="https://via.placeholder.com/100x70?text=Img+2" alt="Miniatura 2" class="thumbnail">
-                <img src="https://via.placeholder.com/100x70?text=Img+3" alt="Miniatura 3" class="thumbnail">
-            </div>
-        </section>
-
-        <section class="product-info">
-            <h2 id="productTitle">Nome do Produto Incrível</h2>
-            <p class="product-price" id="productPrice">R$ 99,99</p>
-
-            <div class="product-options" id="productOptions" style="display: none;">
-                <label for="size-select">Selecione o tamanho:</label>
-                <select id="size-select">
-                    <option value="">Escolha uma opção</option>
-                </select>
-            </div>
-
-            <button id="checkoutButton"  class="add-to-cart-button">Adicionar ao Carrinho</button>
-
-            <div class="product-description" id="productDescription">
-                <h3>Descrição do Produto</h3>
-                <p>Esta é uma descrição detalhada e persuasiva do produto. Destaque os benefícios, as características únicas e por que o cliente precisa deste item.</p>
-                <p>Feito com materiais de alta qualidade para garantir durabilidade e conforto. Perfeito para qualquer ocasião.</p>
+    <main class="container product-page">
+        <section class="product-details">
+            <div class="product-media">
+                <div class="main-image">
+                    <img id="product-main-image" src="https://via.placeholder.com/600x400/0056b3/ffffff?text=Imagem+Principal" alt="Imagem Principal do Produto">
+                </div>
+                <div class="image-carousel">
+                    <div class="carousel-item">
+                        <img src="https://via.placeholder.com/100x70/0056b3/ffffff?text=Img+1" alt="Miniatura 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://via.placeholder.com/100x70/0056b3/ffffff?text=Img+2" alt="Miniatura 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://via.placeholder.com/100x70/0056b3/ffffff?text=Img+3" alt="Miniatura 3">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://via.placeholder.com/100x70/0056b3/ffffff?text=Img+4" alt="Miniatura 4">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://via.placeholder.com/100x70/0056b3/ffffff?text=Img+5" alt="Miniatura 5">
+                    </div>
+                </div>
             </div>
 
-            <div class="social-proof" id="socialProofSection">
-                <h3>O que nossos clientes dizem:</h3>
-                <div class="testimonial">
-                    <p>"Adorei! Qualidade superior e entrega rápida. Recomendo muito!"</p>
-                    <small>- Maria S.</small>
+            <div class="product-info">
+                <h2 id="product-title">Nome do Produto Exemplo</h2>
+                <p class="product-short-description">Uma breve e persuasiva descrição do produto que destaca seus principais benefícios.</p>
+
+                <div class="product-price">
+                    <span id="product-price-value">R$ 99,90</span>
+                </div>
+
+                <div class="product-options" style="display: none;">
+                    <label for="product-size">Tamanho:</label>
+                    <select id="product-size" name="size">
+                        <option value="">Selecione um tamanho</option>
+                        <option value="P">P</option>
+                        <option value="M">M</option>
+                        <option value="G">G</option>
+                    </select>
+                </div>
+
+                <div class="product-actions">
+                    <form id="checkout-form" action="/create_preference" method="POST">
+                        <input type="hidden" id="product-id" name="product_id" value="[ID_DO_PRODUTO]">
+                        <input type="hidden" id="product-amount" name="amount" value="99.90">
+                        <input type="hidden" id="product-description" name="description" value="Nome do Produto Exemplo">
+                        <input type="hidden" id="payer-email" name="payer_email" value="comprador@teste.com">
+                        <button type="submit" class="buy-button">Pagar com Mercado Pago</button>
+                    </form>
+                </div>
+
+                <div class="social-proof">
+                    <p>✨ **Mais de 50 unidades vendidas** nas últimas 24 horas!</p>
+                    <p>⭐ Avaliação: 4.8/5 (120 avaliações)</p>
+                </div>
+
+                <div class="security-badges">
+                    <h4>Compre com Confiança!</h4>
+                    <div class="badges-grid">
+                        <div class="badge-item">
+                            <img src="https://img.icons8.com/ios-filled/50/0056b3/lock--v1.png" alt="Pagamento Seguro">
+                            <span>Pagamento Seguro</span>
+                        </div>
+                        <div class="badge-item">
+                            <img src="https://img.icons8.com/ios-filled/50/0056b3/checked-checkbox.png" alt="Produtos de Qualidade">
+                            <span>Produtos de Qualidade</span>
+                        </div>
+                        <div class="badge-item">
+                            <img src="https://img.icons8.com/ios-filled/50/0056b3/delivery.png" alt="Entrega Rápida">
+                            <span>Entrega Rápida</span>
+                        </div>
+                        <div class="badge-item">
+                            <img src="https://img.icons8.com/ios-filled/50/0056b3/return.png" alt="Devolução Facilitada">
+                            <span>Devolução Facilitada</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
-    </main>
 
-    <footer>
-        <p>&copy; 2025 Nome da Loja. Todos os direitos reservados.</p>
+        <section class="product-long-description">
+            <h3>Detalhes Completos do Produto</h3>
+            <p>Aqui você pode adicionar uma descrição mais longa e detalhada do produto, usando parágrafos, listas e outros elementos para persuadir o cliente. Fale sobre os materiais, benefícios, como usar, etc.</p>
+            <p>Este é um espaço ideal para contar a história do produto e responder a possíveis dúvidas que o cliente possa ter antes da compra.</p>
+        </section>
+
+        <section class="customer-reviews">
+            <h3>Avaliações de Clientes</h3>
+            <div class="reviews-summary">
+                <div class="stars-display" data-rating="4.5">
+                    <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star-half">&#9733;</span>
+                </div>
+                <span class="average-rating">4.5 de 5 estrelas</span>
+                <span class="total-reviews">(120 avaliações)</span>
+            </div>
+
+            <div class="review-list">
+                <div class="review-item">
+                    <div class="review-header">
+                        <span class="review-author">Maria S.</span>
+                        <span class="review-date">20 de Junho de 2025</span>
+                        <div class="stars-display" data-rating="5">
+                            <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+                        </div>
+                    </div>
+                    <p class="review-text">"Produto excelente! Superou minhas expectativas. Recomendo a todos!"</p>
+                </div>
+                <div class="review-item">
+                    <div class="review-header">
+                        <span class="review-author">João P.</span>
+                        <span class="review-date">18 de Junho de 2025</span>
+                        <div class="stars-display" data-rating="4">
+                            <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star-empty">&#9733;</span>
+                        </div>
+                    </div>
+                    <p class="review-text">"Entrega rápida e produto de alta qualidade. Minha melhor compra online!"</p>
+                </div>
+                <div class="review-item">
+                    <div class="review-header">
+                        <span class="review-author">Ana L.</span>
+                        <span class="review-date">15 de Junho de 2025</span>
+                        <div class="stars-display" data-rating="3">
+                            <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star-empty">&#9733;</span><span class="star-empty">&#9733;</span>
+                        </div>
+                    </div>
+                    <p class="review-text">"O produto é bom, mas a embalagem poderia ser melhor. Chegou um pouco amassada."</p>
+                </div>
+            </div>
+        </section>
+        </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 Sua Loja Virtual. Todos os direitos reservados.</p>
+        </div>
     </footer>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="product.js"></script>
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+    <script src="script.js"></script>
 </body>
 </html>
 
