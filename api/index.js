@@ -1,25 +1,26 @@
-// api/index.js
+// api/index.js (VERSÃO FINAL - Com todas as rotas)
 const express = require('express');
 const path = require('path');
-const { MercadoPagoConfig, Preference } = require('mercadopago'); // <-- Importação CORRETA
+const { MercadoPagoConfig, Preference } = require('mercadopago');
 const dotenv = require('dotenv');
 
-dotenv.config(); // Carrega variáveis do .env LOCALMENTE (não afeta Vercel)
+dotenv.config();
 
 const app = express();
 
-// Configuração do Mercado Pago (usando a nova API)
-const client = new MercadoPagoConfig({ accessToken: process.env.MERCADO_PAGO_ACCESS_TOKEN }); // <-- AQUI DEVE SER 'MERCADO_PAGO_ACCESS_TOKEN'
+const client = new MercadoPagoConfig({ accessToken: process.env.MERCADO_PAGO_ACCESS_TOKEN });
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use(express.static(path.join(__dirname, '../public')));
 
+// Rota para a página de produto
 app.get('/product', (req, res) => {
     res.sendFile(path.join(__dirname, '../public', 'product.html'));
 });
 
+// Rota para criar preferência de pagamento no Mercado Pago
 app.post('/create_preference', async (req, res) => {
     const { amount, description, payer_email, product_id, quantity, selected_size } = req.body;
 
@@ -28,7 +29,7 @@ app.post('/create_preference', async (req, res) => {
     }
 
     try {
-        const preference = new Preference(client); // Instancia Preference com o client configurado
+        const preference = new Preference(client);
 
         const response = await preference.create({
             body: {
@@ -63,6 +64,7 @@ app.post('/create_preference', async (req, res) => {
     }
 });
 
+// Rotas de retorno do Mercado Pago
 app.get('/success', (req, res) => {
     res.send('Pagamento realizado com sucesso! 🎉');
 });
@@ -75,5 +77,17 @@ app.get('/pending', (req, res) => {
     res.send('Pagamento pendente. Aguardando confirmação. ⏳');
 });
 
-module.exports = app;
+// Bloco de escuta do servidor (para uso local)
+const PORT = process.env.PORT || 3000;
 
+try {
+    app.listen(PORT, () => {
+        console.log(`Full Express server running on http://localhost:${PORT}`);
+        console.log('Press Ctrl+C to stop the server.');
+    });
+} catch (error) {
+    console.error('Failed to start full Express server:', error);
+}
+
+// Exporta o aplicativo Express como uma função serverless
+module.exports = app;
