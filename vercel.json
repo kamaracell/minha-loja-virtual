@@ -4,16 +4,16 @@
     {
       "src": "api/*.js",
       "use": "@vercel/node"
-    },
-    {
-      "src": "public/**",
-      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
       "src": "/product",
       "dest": "/public/product.html"
+    },
+    {
+      "src": "/(.*\\.(css|js|png|jpg|jpeg|gif|svg|ico))$",
+      "dest": "/public/$1"
     },
     {
       "src": "/(.*)",
